@@ -1,0 +1,26 @@
+﻿@model IEnumerable<StudentManagement.Models.Student>
+@{
+    Layout = "~/Views/Shared/_Student.cshtml";
+}
+
+<h1>Students</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Grade Id</th>
+            <th scope="col">Class Id</th>
+            <th scope="col">Courses</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+		@{
+            await Html.RenderPartialAsync("_StudentPartial", Model);
+         }
+    </tbody>
+</table>
+
+

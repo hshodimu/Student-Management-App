@@ -1,0 +1,66 @@
+﻿@model StudentManagement.Models.Student
+@inject StudentManagement.Data.ApplicationDbContext context
+
+@{
+    Layout = "~/Views/Shared/_Student.cshtml";
+}
+
+<h1>Update Student Information</h1>
+<form class="row g-3 needs-validation" novalidate method="post" action="Update">
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Id</label>
+        <input type="text" class="form-control" id="validationCustom01" asp-for="Id" readonly required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Name</label>
+        <input type="text" class="form-control" id="validationCustom01" asp-for="Name" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Date of Birth</label>
+        <input type="text" class="form-control" asp-for="Dob" id="validationCustom02" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom03" class="form-label">Grade Id</label>
+        <input type="number" class="form-control" asp-for="GradeId" id="validationCustom03" min="1" max="4" required>
+        <div class="invalid-feedback">
+            Please provide a valid grade.
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="validationCustom05" class="form-label" multiple>Courses</label>
+        <select asp-for="Courses" class="form-select" multiple aria-label="multiple select example">
+            @{
+                @foreach (Course course in context.Courses)
+                {
+                    if (@Model.GradeId == course.GradeId)
+                    {
+                        <option value="@course">@course.Name</option>
+
+                    }
+                }
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="ClassId" class="form-label">Class Id</label>
+        <select asp-for="ClassId" class="form-select" aria-label="multiple select example">
+            @{
+                @foreach (Class classNum in context.Classes)
+                {
+                    <option value="@classNum.Id">@classNum.Id</option>
+                }
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-danger" asp-controller="Student" asp-action="Delete">Delete</button>
+</form>

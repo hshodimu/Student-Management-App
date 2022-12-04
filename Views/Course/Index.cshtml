@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Course>
+@{
+    Layout = "~/Views/Shared/_Course.cshtml";
+}
+
+<h1>Courses Table</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">RecordNum</th>
+            <th scope="col">CourseId</th>
+            <th scope="col">Name</th>
+            <th scope="col">GradeId</th>
+            <th scope="col">Students</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @await Html.PartialAsync("_CoursesPartial", Model)
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@model StudentManagement.Models.Class
+
+@{
+    Layout = "~/Views/Shared/_Class.cshtml";
+}
+
+<h1>Enter Class Information</h1>
+<form class="row g-3 needs-validation" novalidate method="post" action="Update">
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Id</label>
+        <input type="number" class="form-control" id="validationCustom01" asp-for="Id" readonly required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Class Number</label>
+        <input type="number" class="form-control" id="validationCustom01" asp-for="ClassNumber" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Term</label>
+        <input type="text" class="form-control" asp-for="Term" id="validationCustom02" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-danger" asp-controller="Class" asp-action="Delete">Delete</button>
+</form>

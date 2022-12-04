@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "Courses";
+}
+
+@foreach (var obj in Model)
+{
+    <tr>
+        <th scope="row">
+            @obj.RecordNum
+        </th>
+        <td width="50%">
+            @obj.CourseId
+        </td>
+        <td width="50%">
+            @obj.Name
+        </td>
+        <td width="50%">
+            @obj.GradeId
+        </td>
+        <td width="50%">
+			@foreach (Student student in obj.Students)
+			{
+                @student.Name
+            }
+        </td>
+        <td>
+            <a href="Course/Update?RecordNum=@obj.RecordNum">Update</a>
+        </td>
+    </tr>
+}

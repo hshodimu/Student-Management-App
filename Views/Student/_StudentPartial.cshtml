@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Students";
+}
+
+@foreach (var obj in Model)
+{
+    <tr>
+       <th scope="row">
+           @obj.Id
+       </th>
+       <td width="50%">
+           @obj.Name
+       </td>
+       <td width="50%">
+           @obj.Dob
+       </td>
+       <td width="50%">
+           @obj.GradeId
+       </td>
+        <td width="50%">
+            @obj.GradeId
+        </td>
+        <td width="50%">
+			@foreach (Course course in obj.Courses)
+			{
+				@course.Name
+			}
+        </td>
+        <td>
+            <a href="Student/Update?Id=@obj.Id">Update</a>
+        </td>
+    </tr>
+};

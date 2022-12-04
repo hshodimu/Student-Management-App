@@ -1,0 +1,26 @@
+﻿@model AddGradeViewModel
+@using StudentManagement.Models;
+
+@{
+    Layout = "~/Views/Shared/_Grade.cshtml";
+}
+
+<h1>Enter Grade Information</h1>
+<form class="row g-3 needs-validation" novalidate method="post" action="Add">
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Grade</label>
+        <input type="text" class="form-control" id="validationCustom01" asp-for="GradeName" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Section</label>
+        <input type="text" class="form-control" asp-for="Section" id="validationCustom02" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

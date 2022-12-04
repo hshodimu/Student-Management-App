@@ -1,0 +1,45 @@
+﻿@model AddTeacherViewModel
+@using StudentManagement.Models;
+
+@{
+    Layout = "~/Views/Shared/_Teacher.cshtml";
+}
+
+<h1>Enter Teacher Information</h1>
+<form class="row g-3 needs-validation" novalidate method="post" action="Add">
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Name</label>
+        <input type="text" class="form-control" id="validationCustom01" asp-for="Name" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Homeroom Number</label>
+        <input type="number" class="form-control" asp-for="HomeroomNumber" id="validationCustom02" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom03" class="form-label">Department</label>
+        <input type="text" class="form-control" asp-for="Department" id="validationCustom03" required>
+        <div class="invalid-feedback">
+            Please provide a valid grade.
+        </div>
+    </div>
+        <div class="col-md-3">
+        <label for="validationCustom03" class="form-label">Course Id</label>
+        <input type="number" class="form-control" asp-for="CourseId" id="validationCustom03" min="1" required>
+        <div class="invalid-feedback">
+            Please provide a valid grade.
+        </div>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+    <div class="mb-3">
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

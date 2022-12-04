@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Grade>
+@inject StudentManagement.Data.ApplicationDbContext context
+
+@{
+    Layout = "~/Views/Shared/_Grade.cshtml";
+
+}
+
+<h1>Grades</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Section</th>
+            <th scope="col">Students</th>
+            <th scope="col">Classes</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Grade grade in Model)
+            {
+                <tr>
+                    <td>
+                        @grade.Id
+                    </td>
+                    <td>
+                        @grade.GradeName
+                    </td>
+                    <td>
+                        @grade.Section
+                    </td>
+                    <td>
+                        @foreach (Student student in grade.Students)
+                        {
+                            @student.Name
+                        }
+                    </td>
+                    <td>
+                        @foreach (Class classes in grade.Classes)
+                        {
+                            @classes.Id
+                        }
+                    </td>
+                    <td>
+                        <a href="Grade/Update?Id=@grade.Id">Update</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

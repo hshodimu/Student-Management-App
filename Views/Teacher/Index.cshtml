@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Teacher>
+
+@{
+    Layout = "~/Views/Shared/_Teacher.cshtml";
+
+}
+
+<h1>Teachers Table</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Homeroom Number</th>
+            <th scope="col">Department</th>
+            <th scope="col">Course Id</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Teacher teacher in Model)
+            {
+                <tr>
+                    <td>
+                        @teacher.Id
+                    </td>
+                    <td>
+                        @teacher.Name
+                    </td>
+                    <td>
+                        @teacher.HomeroomNumber
+                    </td>
+                    <td>
+                        @teacher.Department
+                    </td>
+                    <td>
+                        @teacher.CourseId
+                    </td>
+                    <td>
+                        <a href="Teacher/Update?Id=@teacher.Id">Update</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
